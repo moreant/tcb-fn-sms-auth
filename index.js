@@ -40,7 +40,7 @@ async function main(event, content) {
       const ticket = await loginWithCode(phone, app)
       return {
         ...RETURN_STATUS[10002],
-        res: ticket
+        ticket: ticket
       }
     } else {
       return RETURN_STATUS[20001]
