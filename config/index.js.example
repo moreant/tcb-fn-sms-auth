@@ -1,0 +1,45 @@
+const collectionName = 'tcb-sms-auth-ext'
+
+/**
+ * 云开发自定义登录私钥
+ * 云开发控制台 -> 登录授权 -> 自定义登录 -> 私钥下载
+ */
+const privateKey = {
+  private_key_id: 'private_key_id',
+  private_key: 'private_key',
+  env_id: 'env_id'
+}
+
+/**
+ * 腾讯云 API 密钥
+ * 为了安全起见，建议使用子账号的
+ * 访问管理 -> 访问密钥 -> API密钥管理
+ */
+const tcSecreet = {
+  secretId: 'secretId',
+  SecretKey: 'SecretKey'
+}
+
+/**
+ * 短信配置
+ *
+ */
+const smsParams = {
+  /* 短信应用ID: 短信SmsSdkAppId在 [短信控制台] 添加应用后生成的实际SmsSdkAppId，示例如1400006666 */
+  smsSdkAppId: 'smsSdkAppId',
+  /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台] 查看 */
+  signName: 'signName',
+  /* 验证码有效时间: 单位: 分钟 */
+  validTime: 5,
+  /* 验证码模板 ID: 必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台] 查看 */
+  /* 模板内容如下，如有需要请自信修改模板和 sendSmsCode 方法中的参数。*/
+  /* 您的验证码为：{1}，该验证码{2}分钟内有效，请勿泄漏于他人！ */
+  codeTemplateId: 'codeTemplateId'
+}
+
+module.exports = {
+  collectionName,
+  privateKey,
+  tcSecreet,
+  smsParams
+}

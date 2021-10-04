@@ -1,0 +1,15 @@
+{
+  "name": "tcb-sms-auth-ext",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cwuyiqing@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "@cloudbase/node-sdk": "^2.7.1",
+    "tencentcloud-sdk-nodejs": "^4.0.212"
+  }
+}
