@@ -66,6 +66,9 @@ async function sendSms(phone, templateId, templateParamSet) {
   return client.SendSms(params).then(
     (data) => {
       console.log(data)
+      if (data.SendStatusSet[0].Code !== 'Ok') {
+        throw new Error(data.SendStatusSet[0].Code)
+      }
       return data
     },
     (err) => {

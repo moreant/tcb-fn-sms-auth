@@ -6,12 +6,12 @@ const { sendSms, randomStr } = require('./utils')
 async function sendTest() {
   try {
     const validTime = 5
-    const phone = '1768888888'
+    const phone = '17688740114'
     const smsCode = randomStr(6)
     const period = validTime * 60 * 1000
 
     // 3. 发送短信
-    await sendSms(phone, '1100000', [smsCode, validTime + ''])
+    await sendSms(phone, '114712331', [smsCode, validTime + ''])
   } catch (e) {
     console.log(e)
   }

@@ -32,7 +32,15 @@ async function main(event, content) {
   const { cmd, phone, smsCode, Message } = event
 
   if (cmd === SEND) {
-    await sendSmsCode(phone, collection)
+    try {
+      await sendSmsCode(phone, collection)
+    } catch (e) {
+      if (e.message.concat('LimitExceeded')) {
+        return RETURN_STATUS[20003]
+      } else {
+        return RETURN_STATUS[0]
+      }
+    }
     return RETURN_STATUS[10001]
   } else if (cmd === LOGIN) {
     const verified = await verifySmsCode(phone, smsCode, collection, _)
@@ -40,7 +48,7 @@ async function main(event, content) {
       const ticket = await loginWithCode(phone, app)
       return {
         ...RETURN_STATUS[10002],
-        ticket: ticket
+        result: { ticket }
       }
     } else {
       return RETURN_STATUS[20001]
@@ -48,5 +56,7 @@ async function main(event, content) {
   } else if (cmd === VERIFY) {
     const verified = await verifySmsCode(phone, smsCode, collection, _)
     return verified ? RETURN_STATUS[10003] : RETURN_STATUS[20002]
+  } else {
+    return RETURN_STATUS[20000]
   }
 }
