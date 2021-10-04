@@ -1,5 +1,5 @@
 {
-  "name": "tcb-sms-auth-ext",
+  "name": "tcb-fn-sms-auth",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
